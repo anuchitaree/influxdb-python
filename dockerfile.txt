@@ -1,0 +1,9 @@
+docker network create --driver bridge influxdb-telegraf-net
+
+docker run -d --name=influxdb -p 8086:8086 --net=influxdb-telegraf-net influxdb:2.0
+#  -v  /tmp/testdata/influx:/root/.influxdb2 \
+
+# docker run -d --name=telegraf --net=influxdb-telegraf-net telegraf
+      # -v /mytelegrafconfigsdir/telegraf.conf:/var/lib/influxdb \
+
+docker run -d --name=grafana --net=influxdb-telegraf-net -p 3000:3000 grafana/grafana
