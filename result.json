@@ -1,0 +1,46 @@
+FluxTable() columns: 9, records: 2
+{
+    'result': '_result',
+     'table': 0, 
+     '_start': datetime.datetime(2024, 3, 13, 3, 11, 47, 829300, tzinfo=tzutc()),
+      '_stop': datetime.datetime(2024, 3, 13, 3, 12, 47, 829300, tzinfo=tzutc()),
+       '_time': datetime.datetime(2024, 3, 13, 3, 11, 57, 21397, tzinfo=tzutc()), 
+       '_value': 452.0, 
+       '_field': 'press1', 
+       '_measurement': 'pressing', 
+       'host': 'host1'
+    }
+{
+    'result': '_result',
+     'table': 0,
+      '_start': datetime.datetime(2024, 3, 13, 3, 11, 47, 829300, tzinfo=tzutc()), 
+      '_stop': datetime.datetime(2024, 3, 13, 3, 12, 47, 829300, tzinfo=tzutc()), 
+      '_time': datetime.datetime(2024, 3, 13, 3, 12, 7, 44773, tzinfo=tzutc()), 
+      '_value': 278.0,
+       '_field': 'press1',
+        '_measurement': 'pressing',
+         'host': 'host1'
+        }
+
+FluxTable() columns: 9, records: 2
+{
+    'result': '_result', 
+    'table': 1, 
+    '_start': datetime.datetime(2024, 3, 13, 3, 11, 47, 829300, tzinfo=tzutc()), 
+    '_stop': datetime.datetime(2024, 3, 13, 3, 12, 47, 829300, tzinfo=tzutc()), 
+    '_time': datetime.datetime(2024, 3, 13, 3, 11, 57, 21397, tzinfo=tzutc()), 
+    '_value': 799.0, 
+    '_field': 'press2', 
+    '_measurement': 'pressing',
+     'host': 'host1'
+    }
+{
+    'result': '_result',
+     'table': 1,
+      '_start': datetime.datetime(2024, 3, 13, 3, 11, 47, 829300, tzinfo=tzutc()), 
+      '_stop': datetime.datetime(2024, 3, 13, 3, 12, 47, 829300, tzinfo=tzutc()), 
+      '_time': datetime.datetime(2024, 3, 13, 3, 12, 7, 44773, tzinfo=tzutc()), 
+      '_value': 631.0, 
+      '_field': 'press2', 
+      '_measurement': 'pressing', 
+      'host': 'host1'}
