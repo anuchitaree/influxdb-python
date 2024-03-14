@@ -7,3 +7,5 @@ docker run -d --name=influxdb -p 8086:8086 --net=influxdb-telegraf-net influxdb:
       # -v /mytelegrafconfigsdir/telegraf.conf:/var/lib/influxdb \
 
 docker run -d --name=grafana --net=influxdb-telegraf-net -p 3000:3000 grafana/grafana
+
+docker run -d --name=grafana823 --net=influxdb-telegraf-net -p 3001:3000 grafana/grafana:8.2.3
