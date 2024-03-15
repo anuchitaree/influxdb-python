@@ -1,0 +1,45 @@
+### Query data ###
+POST http://127.0.0.1:8086/api/v2/query?org=organization&bucket=my-bucket HTTP/1.1
+Authorization: Token wiFlgH8M0wcqCE_0eWLPvzDFoHwxhENER7HcpWqaaN0GQBfJ7rLwBktzAMADpiBPCgijp4ni8U8tdV96-hPWpA==
+Content-Type: application/vnd.flux
+Accept: application/csv
+
+from(bucket: "my-bucket")
+  |> range(start: 2024-03-15T02:31:32.00Z, stop: 2024-03-15T02:38:00.00Z)
+  |> filter(fn: (r) => r["_measurement"] == "pressing")
+  |> filter(fn: (r) => r["_field"] == "press1")
+  |> filter(fn: (r) => r["host"] == "host1")
+
+
+### Query data ###
+POST http://127.0.0.1:8086/api/v2/write?org=organization&bucket=my-bucket&precision=ns HTTP/1.1
+Authorization: Token wiFlgH8M0wcqCE_0eWLPvzDFoHwxhENER7HcpWqaaN0GQBfJ7rLwBktzAMADpiBPCgijp4ni8U8tdV96-hPWpA==
+Content-Type: text/plain; charset=utf-8
+Accept: application/json
+
+airSensors,field=sensor_id=TLM0201,field=station1 temperature=73.97038159354763,humidity=35.23103248356096,co=0.48445310567793615 1630424257000000000
+
+
+#####
+data-binary '
+airSensors,sensor_id=TLM0201,station=Harbor temperature=73.97038159354763,humidity=35.23103248356096,co=0.48445310567793615 1630424257000000000'
+# airSensors,sensor_id=TLM0202 temperature=75.30007505999716,humidity=35.651929918691714,co=0.5141876544505826 1630424257000000000
+
+
+
+
+# home,room=Kitchen temp=21.0,hum=35.9,co=0i 1641024000
+curl --request POST \
+"http://127.0.0.1:8086/api/v2/write?org=organization&bucket=my-bucket&precision=s" \
+  --header "Authorization: Token wiFlgH8M0wcqCE_0eWLPvzDFoHwxhENER7HcpWqaaN0GQBfJ7rLwBktzAMADpiBPCgijp4ni8U8tdV96-hPWpA==" \
+  --header "Content-Type: text/plain; charset=utf-8" \
+  --header "Accept: application/json" \
+  --data-binary '
+    airSensors,sensor_id=TLM0201 temperature=73.97038159354763,humidity=35.23103248356096,co=0.48445310567793615 1630424257000000000
+    airSensors,sensor_id=TLM0202 temperature=75.30007505999716,humidity=35.651929918691714,co=0.5141876544505826 1630424257000000000
+    '
+
+
+
+
+# home,room=Living,tag=_field=temp,tag=Room,temp=21.1,hum=35.9,co=0i

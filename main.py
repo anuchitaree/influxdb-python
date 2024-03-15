@@ -7,7 +7,7 @@ import random
 import time
 
 # You can generate a Token from the "Tokens Tab" in the UI
-token = "NbU2UNq4ZkwPD0WnvqBcqG3pteeJUFhVRWcO8PMk13ibJLPSgmNUTc6aiU8LLgamW_zVkySo-IVe89700aAzcw=="
+token = "wiFlgH8M0wcqCE_0eWLPvzDFoHwxhENER7HcpWqaaN0GQBfJ7rLwBktzAMADpiBPCgijp4ni8U8tdV96-hPWpA=="
 org = "organization"
 bucket = "my-bucket"
 
@@ -26,7 +26,7 @@ sequence = [
 ]
 write_api.write(bucket, org, sequence)
 
-STOP = False
+STOP = True
 
 i = 1000
 while STOP:
